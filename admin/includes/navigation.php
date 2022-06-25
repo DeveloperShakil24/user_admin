@@ -4,23 +4,24 @@
         <ul class="navigation navigation-main navigation-accordion">
 
             <!-- Main -->
-            <?php //$manuName = basename(__DIR__); ?>
-            <li class="active"><a href="index.php"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
-            <li><a href="<?php echo $isInternal == true ? '': 'banner/';?>bannerList.php"><i class="icon-images3"></i> <span>Benners</span></a></li>
-            <li><a href="#"><i class="icon-gradient"></i> <span>Services</span></a></li>
-            <li><a href="#"><i class="icon-images3"></i> <span>Sections</span></a></li>
-            <li><a href="#"><i class="icon-images3"></i> <span>Our Project</span></a></li>
-            <li><a href="#"><i class="icon-images3"></i> <span>Our Staff</span></a></li>
-            <li><a href="#"><i class="icon-images3"></i> <span>Our Client</span></a></li>
-            <li><a href="#"><i class="icon-images3"></i> <span>Contact</span></a></li>
-            <li><a href="#"><i class="icon-images3"></i> <span>Contact Massage</span></a></li>
+            <?php $manuName = basename(__DIR__); ?>
+            <li class="<?php if($page=='index'){echo 'active';} ?>"><a href="<?php echo $isInternal == true ?'../' : '';?>index.php""><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+            <li class="<?php if($page=='banner'){echo 'active';} ?>"><a href="<?php echo $isInternal == true ? '../banner/': 'banner/';?>bannerList.php"><i class="icon-images3"></i> <span>Benners</span></a></li>
+            <!-- <li><a href="<?php //echo $isInternal == true ? '': 'banner/';?>bannerList.php"><i class="icon-images3"></i> <span>Benners</span></a></li> -->
+            <li class="<?php if($page=='ourProject'){echo 'active';} ?>"><a href="<?php echo $isInternal == true ? '../ourProject/' : 'ourProject/';?>projetcList.php"><i class="icon-office"></i> <span>Our Project</span></a></li>
             <li>
-                <a href="#"><i class="icon-gear"></i> <span>Back Office Setup</span></a>
+                <a href="#"><i class="icon-gear"></i> <span>Project Category</span></a>
                 <ul>
-                    <li><a href="#">Category</a></li>
+                    <li class="<?php if($page=='projetcCategoryAdd'){echo 'active';} ?>"><a href="<?php echo $isInternal == true ? '../catagory/' : 'catagory/';?>catagoryList.php">Category</a></li>
                     <li><a href="#">Designation</a></li>
                 </ul>
             </li>
+            <li class="<?php if($page=='services'){echo 'active';} ?>"><a href="<?php echo $isInternal == true ? '../services/': 'services/';?>servicesList.php"><i class=" icon-windows2"></i> <span>Services</span></a></li>
+            <li><a href="#"><i class="icon-portfolio"></i> <span>Portfolio</span></a></li>
+            <li><a href="#"><i class=" icon-users4"></i> <span>Our Staff</span></a></li>
+            <li><a href="#"><i class=" icon-user"></i> <span>Our Client</span></a></li>
+            <li><a href="#"><i class=" icon-bubbles7"></i> <span>Contact</span></a></li>
+            <li><a href="#"><i class="icon-images3"></i> <span>Contact Massage</span></a></li>
             <li>
                 <a href="#"><i class="icon-stack"></i> <span>Starter kit</span></a>
                 <ul>

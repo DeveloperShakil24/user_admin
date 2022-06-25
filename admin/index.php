@@ -3,15 +3,6 @@
 <html lang="en">
 
 	<?php 
-	//dir ($_SERVER['SERVER_NAME'].$_SERVER['REQUEST_UER']);
-	// if(basename(__DIR__) != 'admin'){
-	// 	$baseUrl = '../';
-	// 	$isInternal = true;
-	// } else{
-	// 	$baseUrl = '';
-	// 	$isInternal = false;
-	// }
-
 		// die($_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
 		if (basename(__DIR__) != 'admin') {
 			$baseUrl = '../';
@@ -20,10 +11,11 @@
 			$baseUrl = '';
 			$isInternal = false;
 		}
+		include "includes/head.php";
 	?>
 
 	<!-- head -->
-	<?php include "includes/head.php";?>
+	<?php //include "includes/head.php";?>
 	<!-- /head -->
 
 <body>
@@ -68,7 +60,7 @@
 					<!-- /user menu -->
 
 					<!-- Main navigation -->
-					<?php include "includes/navigation.php"; ?>
+					<?php $page = 'index'; include "includes/navigation.php"; ?>
 					<!-- /main navigation -->
 
 				</div>

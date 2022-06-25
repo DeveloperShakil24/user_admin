@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <?php
-// die($_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
 if (basename(__DIR__) != 'admin') {
 	$baseUrl = '../';
 	$isInternal = true;
@@ -11,14 +9,15 @@ if (basename(__DIR__) != 'admin') {
 	$isInternal = false;
 }
 ?>
-
 <!-- head -->
 <?php include "../includes/head.php"; ?>
 <!-- /head -->
+<?php require "../controller/dbConfig.php"; ?>
 
 <body>
 
 	<!-- Main navbar -->
+
 	<?php include "../includes/mainNav.php"; ?>
 	<!-- /main navbar -->
 
@@ -70,8 +69,8 @@ if (basename(__DIR__) != 'admin') {
 				<div class="page-header">
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
-							<li><a href="bannerList.php"><i class="icon-images3 position-left"></i>Banner</a></li>
-							<li><a href="datatable_basic.html">Update</a></li>
+							<li><a href="catagoryList.php"><i class="icon-images3 position-left"></i>Catagory</a></li>
+							<li><a href="datatable_basic.html">Create</a></li>
 						</ul>
 					</div>
 				</div>
@@ -84,7 +83,7 @@ if (basename(__DIR__) != 'admin') {
 					<!-- Basic datatable -->
 					<div class="panel panel-flat">
 						<div class="panel-heading">
-							<h5 class="panel-title">Banner Update</h5>
+							<h5 class="panel-title">Catagory Create</h5>
 							<div class="heading-elements">
 								<ul class="icons-list">
 									<!-- <li><a data-action="collapse"></a></li>
@@ -96,68 +95,32 @@ if (basename(__DIR__) != 'admin') {
 
 						<div class="panel-body">
 
-							<?php
-							require "../controller/dbConfig.php";
-							$banner_id = $_GET['banner_id'];
-							$getSingelDataQry = "SELECT * FROM banners WHERE id={$banner_id}";
-							$getResult = mysqli_query($dbCon, $getSingelDataQry);
-							?>
-
-							<form class="form-horizontal mt-10" action="../controller/BannerController.php" method="post">
+							<form class="form-horizontal mt-10" action="../controller/categoryController.php" method="post" enctype="multipart/form-data">
 								<fieldset class="content-group">
 									<?php
 									if (isset($_GET['msg'])) {
+
 									?>
 										<div class="alert alert-success no-border mt-5">
 											<button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
-											<span class="text-semibold">Success </span> <?php echo $_GET['msg']; ?>
+											<span class="text-semibold"></span><?php echo $_GET['msg']; ?>
 										</div>
 
 									<?php } ?>
 
-									<?php
-									foreach ($getResult as $key => $banner) {
-
-									?>
-										<input type="hidden" class="form-control" name="banner_id" value="<?php echo $banner['id'] ?>">
-
-										<div class="form-group">
-											<label class="control-label col-lg-2" for="title">Ttile</label>
-											<div class="col-lg-10">
-												<input type="text" id="title" class="form-control" name="title" required value="<?php echo $banner['title'] ?>">
-											</div>
+									<div class="form-group">
+										<label class="control-label col-lg-2" for="category_name">Category Name</label>
+										<div class="col-lg-10">
+											<input type="text" id="category_name" class="form-control" name="category_name">
 										</div>
-
-										<div class="form-group">
-											<label class="control-label col-lg-2" for="sub_title">Sub Ttile</label>
-											<div class="col-lg-10">
-												<input type="text" id="sub_title" class="form-control" name="sub_title" required value="<?php echo $banner['sub_title'] ?>">
-											</div>
-										</div>
-										<div class="form-group">
-											<label class="control-label col-lg-2" for="details">Details</label>
-											<div class="col-lg-10">
-												<textarea rows="5" cols="5" id="details" class="form-control" placeholder="Default textarea" name="details" required><?php echo $banner['details'] ?></textarea>
-											</div>
-										</div>
-
-										<div class="form-group">
-											<label class="control-label col-lg-2" for="image">Image</label>
-											<div class="col-lg-10">
-												<input type="file" id="image" class="form-control" name="image">
-											</div>
-										</div>
-
-									<?php } ?>
-
+									</div>
 								</fieldset>
 								<div class="text-right">
-									<button type="submit" name="updateBanner" class="btn btn-primary">Submit <i class="icon-arrow-right14 position-right"></i></button>
-									<a href="bannerList.php" class="btn btn-default">Go to Banner <i class=" icon-arrow-left13 position-left"> </i></a>
+									<button type="submit" name="saveCatagory" class="btn btn-primary">Submit <i class="icon-arrow-right14 position-right"></i></button>
+									<a href="catagoryList.php" class="btn btn-default">Go to Catagory <i class=" icon-arrow-left13 position-left"> </i></a>
 								</div>
-
 							</form>
-
+							
 						</div>
 						<!-- /basic examples -->
 					</div>

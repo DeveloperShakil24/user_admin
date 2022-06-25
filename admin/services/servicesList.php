@@ -58,7 +58,7 @@ if (basename(__DIR__) != 'admin') {
 					<!-- /user menu -->
 
 					<!-- Main navigation -->
-					<?php $page = 'banner'; include "../includes/navigation.php"; ?>
+					<?php $page = 'services'; include "../includes/navigation.php"; ?>
 					<!-- /main navigation -->
 
 				</div>
@@ -72,7 +72,7 @@ if (basename(__DIR__) != 'admin') {
 				<div class="page-header">
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
-							<li><a href="bannerList.php"><i class="icon-images3 position-left"></i>Banner</a></li>
+							<li><a href="servicesList.php"><i class="icon-images3 position-left"></i>Services</a></li>
 							<li><a href="datatable_basic.html">List</a></li>
 						</ul>
 					</div>
@@ -86,10 +86,10 @@ if (basename(__DIR__) != 'admin') {
 					<!-- Basic datatable -->
 					<div class="panel panel-flat">
 						<div class="panel-heading">
-							<h5 class="panel-title">Banner List</h5>
+							<h5 class="panel-title">Services List</h5>
 							<div class="heading-elements">
 								<ul class="icons-list">
-									<li style="margin-right: 10px;"><a href="bannerAdd.php" class="btn btn-primary add-new"> <i class=" icon-plus-circle2"> </i> Add New</a></li>
+									<li style="margin-right: 10px;"><a href="servicesAdd.php" class="btn btn-primary add-new"> <i class=" icon-plus-circle2"> </i> Add New</a></li>
 									<li><a data-action="collapse"></a></li>
 									<li><a data-action="reload"></a></li>
 									<li><a data-action="close"></a></li>
@@ -123,24 +123,24 @@ if (basename(__DIR__) != 'admin') {
 								<tbody>
 
 									<?php
-									$selectQry = "SELECT * FROM banners WHERE active_status=1";
-									$bannerList = mysqli_query($dbCon, $selectQry);
+									$selectQry = "SELECT * FROM servicess WHERE active_status=1";
+									$servicesList = mysqli_query($dbCon, $selectQry);
 
-									foreach ($bannerList as $key => $banner) {
+									foreach ($servicesList as $key => $services) {
 
 
 									?>
 										<tr>
 											<td><?php echo ++$key; ?></td>
-											<td><?php echo $banner['title']; ?></td>
-											<td><?php echo $banner['sub_title']; ?></td>
-											<td><?php echo $banner['details']; ?></td>
+											<td><?php echo $services['title']; ?></td>
+											<td><?php echo $services['sub_title']; ?></td>
+											<td><?php echo $services['details']; ?></td>
 											<td>
-                                                                   <img class="img-responsive" width="80" height="80" src="<?php echo '../uploads/bannerImage/'.$banner['image']; ?>" alt="">
+                                                                   <img class="img-responsive" width="80" height="80" src="<?php echo '../uploads/servicesImage/'.$services['image']; ?>" alt="">
 										      </td>
 											<td class="text-center">
-												<a href="bannerUpdate.php?banner_id=<?php echo $banner['id']; ?>" class=""><i class=" icon-pencil7"></i></a>
-												<a href="bannerDelete.php?banner_id=<?php echo $banner['id']; ?>" class=""><i class=" icon-trash-alt"></i></a>
+												<a href="servicesUpdate.php?services_id=<?php echo $services['id']; ?>" class=""><i class=" icon-pencil7"></i></a>
+												<a href="servicesDelete.php?services_id=<?php echo $services['id']; ?>" class=""><i class=" icon-trash-alt"></i></a>
 											</td>
 										</tr>
 									<?php } ?>

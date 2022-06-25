@@ -58,7 +58,7 @@ if (basename(__DIR__) != 'admin') {
 					<!-- /user menu -->
 
 					<!-- Main navigation -->
-					<?php $page = 'banner'; include "../includes/navigation.php"; ?>
+					<?php $page='ourProject'; include "../includes/navigation.php"; ?>
 					<!-- /main navigation -->
 
 				</div>
@@ -72,7 +72,7 @@ if (basename(__DIR__) != 'admin') {
 				<div class="page-header">
 					<div class="breadcrumb-line">
 						<ul class="breadcrumb">
-							<li><a href="bannerList.php"><i class="icon-images3 position-left"></i>Banner</a></li>
+							<li><a href="projetcList.php"><i class="icon-images3 position-left"></i>Projetc</a></li>
 							<li><a href="datatable_basic.html">List</a></li>
 						</ul>
 					</div>
@@ -86,10 +86,10 @@ if (basename(__DIR__) != 'admin') {
 					<!-- Basic datatable -->
 					<div class="panel panel-flat">
 						<div class="panel-heading">
-							<h5 class="panel-title">Banner List</h5>
+							<h5 class="panel-title">Projetc List</h5>
 							<div class="heading-elements">
 								<ul class="icons-list">
-									<li style="margin-right: 10px;"><a href="bannerAdd.php" class="btn btn-primary add-new"> <i class=" icon-plus-circle2"> </i> Add New</a></li>
+									<li style="margin-right: 10px;"><a href="projetcAdd.php" class="btn btn-primary add-new"> <i class=" icon-plus-circle2"> </i> Add New</a></li>
 									<li><a data-action="collapse"></a></li>
 									<li><a data-action="reload"></a></li>
 									<li><a data-action="close"></a></li>
@@ -104,7 +104,7 @@ if (basename(__DIR__) != 'admin') {
 							?>
 								<div class="alert alert-success no-border mt-5">
 									<button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
-									<span class="text-semibold">Success </span> <?php echo $_GET['msg']; ?>
+									<span class="text-semibold"></span> <?php echo $_GET['msg']; ?>
 								</div>
 
 							<?php } ?>
@@ -112,38 +112,41 @@ if (basename(__DIR__) != 'admin') {
 							<table class="table datatable-basic table-bordered">
 								<thead>
 									<tr>
-										<th width = "5%">SL</th>
-										<th width = "20%">Title</th>
-										<th width = "20%">Sub Title</th>
-										<th width = "30%">Details</th>
-										<th width = "15%">Image</th>
-										<th width = "10%" class="text-center">Actions</th>
+										<th width="5%">SL</th>
+										<th width="20%">Category Name</th>
+										<th width="20%">Project Name</th>
+										<th width="30%">Project Link</th>
+										<th width="15%">Project Thumb</th>
+										<th width="10%" class="text-center">Actions</th>
 									</tr>
 								</thead>
 								<tbody>
 
 									<?php
-									$selectQry = "SELECT * FROM banners WHERE active_status=1";
-									$bannerList = mysqli_query($dbCon, $selectQry);
+									$selectQry = "SELECT our_project.*, categories.category_name FROM `our_project`
+									INNER JOIN categories ON our_project.category_id = categories.id
+									WHERE our_project.active_status = 1";
+									$projetcList = mysqli_query($dbCon, $selectQry);
+									if (!empty($projetcList)) {
 
-									foreach ($bannerList as $key => $banner) {
-
+										foreach ($projetcList as $key => $projetc) {
 
 									?>
-										<tr>
-											<td><?php echo ++$key; ?></td>
-											<td><?php echo $banner['title']; ?></td>
-											<td><?php echo $banner['sub_title']; ?></td>
-											<td><?php echo $banner['details']; ?></td>
-											<td>
-                                                                   <img class="img-responsive" width="80" height="80" src="<?php echo '../uploads/bannerImage/'.$banner['image']; ?>" alt="">
-										      </td>
-											<td class="text-center">
-												<a href="bannerUpdate.php?banner_id=<?php echo $banner['id']; ?>" class=""><i class=" icon-pencil7"></i></a>
-												<a href="bannerDelete.php?banner_id=<?php echo $banner['id']; ?>" class=""><i class=" icon-trash-alt"></i></a>
-											</td>
-										</tr>
-									<?php } ?>
+											<tr>
+												<td><?php echo ++$key; ?></td>
+												<td><?php echo $projetc['category_name']; ?></td>
+												<td><?php echo $projetc['project_name']; ?></td>
+												<td><?php echo $projetc['project_link']; ?></td>
+												<td>
+													<img class="img-responsive" width="80" height="80" src="<?php echo '../uploads/projectThumb/' . $projetc['project_image']; ?>" alt="">
+												</td>
+												<td class="text-center">
+													<a href="projetcUpdate.php?projetc_id=<?php echo $projetc['id']; ?>" class=""><i class=" icon-pencil7"></i></a>
+													<a href="projetcDelete.php?projetc_id=<?php echo $projetc['id']; ?>" class=""><i class=" icon-trash-alt"></i></a>
+												</td>
+											</tr>
+									<?php }
+									} ?>
 								</tbody>
 							</table>
 						</div>
