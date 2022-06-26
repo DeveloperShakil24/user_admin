@@ -98,7 +98,7 @@ if (basename(__DIR__) != 'admin') {
 
 							<?php
 							require "../controller/dbConfig.php";
-							$massage_id = $_GET['contact_massages_id'];
+							$massage_id = $_GET['massages_id'];
 							$getSingelDataQry = "SELECT * FROM contact_massages WHERE id={$massage_id}";
 							$getResult = mysqli_query($dbCon, $getSingelDataQry);
 							?>
@@ -120,7 +120,7 @@ if (basename(__DIR__) != 'admin') {
 									foreach ($getResult as $key => $massage) {
 
 									?>
-										<input type="hidden" class="form-control" name="contact_massages_id" value="<?php echo $massage['id'] ?>">
+										<input type="hidden" class="form-control" name="massages_id" value="<?php echo $massage['id'] ?>">
 
 										<div class="form-group">
 											<label class="control-label col-lg-2" for="name">Name</label>

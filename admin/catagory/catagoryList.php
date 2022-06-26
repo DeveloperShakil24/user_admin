@@ -115,6 +115,9 @@ if (basename(__DIR__) != 'admin') {
 										<th width = "5%">SL</th>
 										<th width = "80%">Category Name</th>
 										<th width = "15%" class="text-center">Actions</th>
+										<th></th>
+										<th></th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -133,6 +136,9 @@ if (basename(__DIR__) != 'admin') {
 												<a href="catagoryUpdate.php?catagory_id=<?php echo $catagory['id']; ?>" class=""><i class=" icon-pencil7"></i></a>
 												<a href="catagoryDelete.php?catagory_id=<?php echo $catagory['id']; ?>" class=""><i class=" icon-trash-alt"></i></a>
 											</td>
+											<td></td>
+											<td></td>
+											<td></td>
 										</tr>
 									<?php } ?>
 								</tbody>

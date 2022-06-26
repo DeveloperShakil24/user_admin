@@ -119,6 +119,7 @@ if (basename(__DIR__) != 'admin') {
 										<th width="35%">Icon Name</th>
 										<th width="25%">Services Detals</th>
 										<th width="10%" class="text-center">Actions</th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -139,6 +140,7 @@ if (basename(__DIR__) != 'admin') {
 												<a href="servicesUpdate.php?services_id=<?php echo $services['id']; ?>" class=""><i class=" icon-pencil7"></i></a>
 												<a href="servicesDelete.php?services_id=<?php echo $services['id']; ?>" class=""><i class=" icon-trash-alt"></i></a>
 											</td>
+											<td></td>
 										</tr>
 									<?php } ?>
 								</tbody>
@@ -195,6 +197,7 @@ if (basename(__DIR__) != 'admin') {
 										<th width="35%">Icon Name</th>
 										<th width="25%">Services Detals</th>
 										<th width="10%" class="text-center">Actions</th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -215,6 +218,7 @@ if (basename(__DIR__) != 'admin') {
 												<a href="servicesUpdate.php?services_id=<?php echo $services['id']; ?>" class=""><i class=" icon-pencil7"></i></a>
 												<a href="servicesDelete.php?services_id=<?php echo $services['id']; ?>" class=""><i class=" icon-trash-alt"></i></a>
 											</td>
+											<td></td>
 										</tr>
 									<?php } ?>
 								</tbody>

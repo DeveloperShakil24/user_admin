@@ -52,26 +52,26 @@ if (isset($_POST["saveMassages"])) {
 //This For Create Banner end
 
 //This For Update Banner
-// if (isset($_POST["updateMassage"])) {
+ if (isset($_POST["updateMassage"])) {
 
-//     $massage_id = $_POST['id'];
-//     $name       = $_POST['name'];
-//     $email      = $_POST['email'];
-//     $subject    = $_POST['subject'];
-//     $massage    = $_POST['massage'];
+    $massage_id = $_POST['massages_id'];
+    $name       = $_POST['name'];
+    $email      = $_POST['email'];
+    $subject    = $_POST['subject'];
+    $massage    = $_POST['massage'];
 
-//     if (empty($name) || empty($email) || empty($subject) || empty($massage)) {
-//         $masssage = "All Field are Requried";
-//     } else {
-//          $updateQry = "UPDATE contact_massages SET name='{$name}', email='{$email}', subject='{$subject}' , massage='{$massage}' WHERE id='{$massage_id}'";
+    if (empty($name) || empty($email) || empty($subject) || empty($massage)) {
+        $masssage = "All Field are Requried";
+    } else {
+         $updateQry = "UPDATE contact_massages SET name='{$name}', email='{$email}', subject='{$subject}' , massage='{$massage}' WHERE id='{$massage_id}'";
 
-//         $isSubmit  = mysqli_query($dbCon, $updateQry);
+        $isSubmit  = mysqli_query($dbCon, $updateQry);
 
-//         if ($isSubmit == true) {
-//             $masssage = "Massage Update Succesfull";
-//         } else {
-//             $masssage = "Massage Update Failed";
-//         }
-//     }
-//     header("location: ../contact_massages/massageUpdate.php?massage_id={$massage_id}&msg={$masssage}");
-// }
+        if ($isSubmit == true) {
+            $masssage = "Massage Update Succesfull";
+        } else {
+            $masssage = "Massage Update Failed";
+        }
+    }
+    header("location: ../contact_massages/massageUpdate.php?msg={$masssage}&massages_id={$massage_id}");
+}

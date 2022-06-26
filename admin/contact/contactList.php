@@ -112,11 +112,12 @@ if (basename(__DIR__) != 'admin') {
 							<table class="table datatable-basic table-bordered table-hover">
 								<thead>
 									<tr>
-										<th width = "5%">SL</th>
+										<th width = "5%">SL</th>										
 										<th width = "30%">Contact Title</th>
 										<th width = "40%">Contact Detals</th>
 										<th width = "15%">Icon Name</th>
 										<th width = "10%" class="text-center">Actions</th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
@@ -137,6 +138,7 @@ if (basename(__DIR__) != 'admin') {
 												<a href="contactUpdate.php?contact_id=<?php echo $contact['id']; ?>" class=""><i class=" icon-pencil7"></i></a>
 												<a href="contactDelete.php?contact_id=<?php echo $contact['id']; ?>" class=""><i class=" icon-trash-alt"></i></a>
 											</td>
+											<td></td>
 										</tr>
 									<?php } ?>
 								</tbody>
