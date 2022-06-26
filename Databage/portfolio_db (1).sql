@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2022 at 02:28 PM
+-- Generation Time: Jun 26, 2022 at 04:35 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -103,8 +103,11 @@ CREATE TABLE `contact_massages` (
 --
 
 INSERT INTO `contact_massages` (`id`, `name`, `email`, `subject`, `massage`, `active_status`) VALUES
-(1, 'Shakill', 'shakil@gmail.com', 'PHP', 'Hi', 2),
-(2, 'MD: Shakil Sikder', 'alorshikha24@gmail.com', 'cPanel', 'Hi', 2);
+(1, 'Shakill adsad', 'shakil@gmail.com', 'PHP', 'Hi', 2),
+(2, 'MD: Shakil Sikder', 'alorshikha24@gmail.com', 'cPanel', 'Hi', 0),
+(3, 'MD: Shakil Sikder', 'alorshikha24@gmail.com', 'cPanel 2', 'cPanel 2cPanel 2cPanel 2cPanel 2', 0),
+(4, 'MD: Shakil Sikder', 'alorshikha24@gmail.com', 'cPanel 2', 'contact_massagescontact_massages', 0),
+(5, 'MD: Shakil Sikder', 'alorshikha24@gmail.com', 'cPanel', 'client_detalsclient_detals', 2);
 
 -- --------------------------------------------------------
 
@@ -128,6 +131,22 @@ INSERT INTO `contact_us` (`id`, `contact_title`, `contact_detals`, `icon_name`, 
 (1, 'Contact Title. Contact Title. Contact Title', 'Contact Detals.', 'Icon Name-0', 0),
 (2, 'Contact Title. Contact Title. Contact Title', 'Contact Title. Contact Title. Contact Title', 'Icon Name2', 2),
 (3, 'Contact Title. Contact Title. Contact Title5', 'Contact Title. Contact Title. Contact TitleContact Title. Contact Title. Contact TitleContact Title. Contact Title. Contact Title5', 'Icon Name5', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `our_client`
+--
+
+CREATE TABLE `our_client` (
+  `id` int(11) NOT NULL,
+  `client_name` varchar(50) NOT NULL,
+  `designation_id` int(11) NOT NULL,
+  `client_detals` text NOT NULL,
+  `image` varchar(20) NOT NULL,
+  `client_review` text NOT NULL,
+  `active_status` tinyint(4) NOT NULL DEFAULT 1 COMMENT '0=InActive, 1=Active	'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -208,6 +227,12 @@ ALTER TABLE `contact_us`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `our_client`
+--
+ALTER TABLE `our_client`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `our_project`
 --
 ALTER TABLE `our_project`
@@ -239,13 +264,19 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `contact_massages`
 --
 ALTER TABLE `contact_massages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `contact_us`
 --
 ALTER TABLE `contact_us`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `our_client`
+--
+ALTER TABLE `our_client`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `our_project`
