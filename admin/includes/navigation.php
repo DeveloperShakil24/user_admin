@@ -20,8 +20,8 @@
             <li><a href="#"><i class="icon-portfolio"></i> <span>Portfolio</span></a></li>
             <li><a href="#"><i class=" icon-users4"></i> <span>Our Staff</span></a></li>
             <li><a href="#"><i class=" icon-user"></i> <span>Our Client</span></a></li>
-            <li><a href="#"><i class=" icon-bubbles7"></i> <span>Contact</span></a></li>
-            <li><a href="#"><i class="icon-images3"></i> <span>Contact Massage</span></a></li>
+            <li class="<?php if($page=='contact'){echo 'active';} ?>"><a href="<?php echo $isInternal == true ? '../contact/' : 'contact/';?>contactList.php"><i class=" icon-bubbles7"></i> <span>Contact Us</span></a></li>
+            <li class="<?php if($page=='massages'){echo 'active';} ?>"><a href="<?php echo $isInternal == true ? '../contact_massages/' : 'contact_massages/';?>massagesList.php"><i class="icon-images3"></i> <span>Contact Massage</span></a></li>
             <li>
                 <a href="#"><i class="icon-stack"></i> <span>Starter kit</span></a>
                 <ul>

@@ -58,7 +58,8 @@ if (basename(__DIR__) != 'admin') {
 					<!-- /user menu -->
 
 					<!-- Main navigation -->
-					<?php $page = 'services'; include "../includes/navigation.php"; ?>
+					<?php $page = 'services';
+					include "../includes/navigation.php"; ?>
 					<!-- /main navigation -->
 
 				</div>
@@ -80,7 +81,7 @@ if (basename(__DIR__) != 'admin') {
 				<!-- /page header -->
 
 
-				<!-- Content area -->
+				<!-- Content area Left Design  Start-->
 				<div class="content">
 
 					<!-- Basic datatable -->
@@ -97,6 +98,7 @@ if (basename(__DIR__) != 'admin') {
 							</div>
 						</div>
 
+						<!-- Left Design Start -->
 						<div class="panel-body">
 
 							<?php
@@ -104,40 +106,35 @@ if (basename(__DIR__) != 'admin') {
 							?>
 								<div class="alert alert-success no-border mt-5">
 									<button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
-									<span class="text-semibold">Success </span> <?php echo $_GET['msg']; ?>
+									<span class="text-semibold"></span> <?php echo $_GET['msg']; ?>
 								</div>
 
 							<?php } ?>
 
-							<table class="table datatable-basic table-bordered">
+							<table class="table datatable-basic table-bordered table-hover">
 								<thead>
 									<tr>
-										<th width = "5%">SL</th>
-										<th width = "20%">Title</th>
-										<th width = "20%">Sub Title</th>
-										<th width = "30%">Details</th>
-										<th width = "15%">Image</th>
-										<th width = "10%" class="text-center">Actions</th>
+										<th width="5%">SL</th>
+										<th width="25%">Service Name</th>
+										<th width="35%">Icon Name</th>
+										<th width="25%">Services Detals</th>
+										<th width="10%" class="text-center">Actions</th>
 									</tr>
 								</thead>
 								<tbody>
 
 									<?php
-									$selectQry = "SELECT * FROM servicess WHERE active_status=1";
+									$selectQry = "SELECT * FROM services WHERE design_status=2";
 									$servicesList = mysqli_query($dbCon, $selectQry);
 
 									foreach ($servicesList as $key => $services) {
 
-
 									?>
 										<tr>
 											<td><?php echo ++$key; ?></td>
-											<td><?php echo $services['title']; ?></td>
-											<td><?php echo $services['sub_title']; ?></td>
-											<td><?php echo $services['details']; ?></td>
-											<td>
-                                                                   <img class="img-responsive" width="80" height="80" src="<?php echo '../uploads/servicesImage/'.$services['image']; ?>" alt="">
-										      </td>
+											<td><?php echo $services['service_name']; ?></td>
+											<td><?php echo $services['services_detals']; ?></td>
+											<td><?php echo $services['icon_name']; ?></td>
 											<td class="text-center">
 												<a href="servicesUpdate.php?services_id=<?php echo $services['id']; ?>" class=""><i class=" icon-pencil7"></i></a>
 												<a href="servicesDelete.php?services_id=<?php echo $services['id']; ?>" class=""><i class=" icon-trash-alt"></i></a>
@@ -147,7 +144,7 @@ if (basename(__DIR__) != 'admin') {
 								</tbody>
 							</table>
 						</div>
-
+						<!-- Left Design End -->				
 
 					</div>
 					<!-- /basic datatable -->
@@ -158,7 +155,83 @@ if (basename(__DIR__) != 'admin') {
 					<!-- /footer -->
 
 				</div>
-				<!-- /content area -->
+				<!-- /content area Left Design  End-->
+
+				<!-- Content area Left Design  Start-->
+				<div class="content">
+
+					<!-- Basic datatable -->
+					<div class="panel panel-flat">
+						<div class="panel-heading">
+							<h5 class="panel-title">Services List</h5>
+							<div class="heading-elements">
+								<ul class="icons-list">
+									<li style="margin-right: 10px;"><a href="servicesAdd.php" class="btn btn-primary add-new"> <i class=" icon-plus-circle2"> </i> Add New</a></li>
+									<li><a data-action="collapse"></a></li>
+									<li><a data-action="reload"></a></li>
+									<li><a data-action="close"></a></li>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Right Design Start -->
+						<div class="panel-body">
+
+							<?php
+							if (isset($_GET['msg'])) {
+							?>
+								<div class="alert alert-success no-border mt-5">
+									<button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
+									<span class="text-semibold"></span> <?php echo $_GET['msg']; ?>
+								</div>
+
+							<?php } ?>
+
+							<table class="table datatable-basic table-bordered table-hover">
+								<thead>
+									<tr>
+										<th width="5%">SL</th>
+										<th width="25%">Service Name</th>
+										<th width="35%">Icon Name</th>
+										<th width="25%">Services Detals</th>
+										<th width="10%" class="text-center">Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<?php
+									$selectQry = "SELECT * FROM services WHERE design_status=1";
+									$servicesList = mysqli_query($dbCon, $selectQry);
+
+									foreach ($servicesList as $key => $services) {
+
+									?>
+										<tr>
+											<td><?php echo ++$key; ?></td>
+											<td><?php echo $services['service_name']; ?></td>
+											<td><?php echo $services['services_detals']; ?></td>
+											<td><?php echo $services['icon_name']; ?></td>
+											<td class="text-center">
+												<a href="servicesUpdate.php?services_id=<?php echo $services['id']; ?>" class=""><i class=" icon-pencil7"></i></a>
+												<a href="servicesDelete.php?services_id=<?php echo $services['id']; ?>" class=""><i class=" icon-trash-alt"></i></a>
+											</td>
+										</tr>
+									<?php } ?>
+								</tbody>
+							</table>
+						</div>
+						<!-- Right Design End -->				
+
+					</div>
+					<!-- /basic datatable -->
+					<!-- Footer -->
+					<div class="footer text-muted">
+						&copy; 2022. <a href="#">Developer Shakil</a> by <a href="#" target="_blank">MD Shakil Sikder</a>
+					</div>
+					<!-- /footer -->
+
+				</div>
+				<!-- /content area Left Design  End-->
 
 			</div>
 			<!-- /main content -->

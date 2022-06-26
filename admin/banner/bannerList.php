@@ -104,12 +104,12 @@ if (basename(__DIR__) != 'admin') {
 							?>
 								<div class="alert alert-success no-border mt-5">
 									<button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
-									<span class="text-semibold">Success </span> <?php echo $_GET['msg']; ?>
+									<span class="text-semibold"></span> <?php echo $_GET['msg']; ?>
 								</div>
 
 							<?php } ?>
 
-							<table class="table datatable-basic table-bordered">
+							<table class="table datatable-basic table-bordered table-hover">
 								<thead>
 									<tr>
 										<th width = "5%">SL</th>
