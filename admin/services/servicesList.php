@@ -165,7 +165,7 @@ if (basename(__DIR__) != 'admin') {
 					<!-- Basic datatable -->
 					<div class="panel panel-flat">
 						<div class="panel-heading">
-							<h5 class="panel-title">Services List</h5>
+							<h5 class="panel-title">Services List Right</h5>
 							<div class="heading-elements">
 								<ul class="icons-list">
 									<li style="margin-right: 10px;"><a href="servicesAdd.php" class="btn btn-primary add-new"> <i class=" icon-plus-circle2"> </i> Add New</a></li>

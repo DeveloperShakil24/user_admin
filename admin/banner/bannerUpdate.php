@@ -102,8 +102,8 @@ if (basename(__DIR__) != 'admin') {
 							$getSingelDataQry = "SELECT * FROM banners WHERE id={$banner_id}";
 							$getResult = mysqli_query($dbCon, $getSingelDataQry);
 							?>
-
-							<form class="form-horizontal mt-10" action="../controller/BannerController.php" method="post">
+							<!-- ?banner_id<?php //$banner_id; ?> -->
+							<form class="form-horizontal mt-10" action="../controller/BannerController.php" method="post" enctype="multipart/form-data">
 								<fieldset class="content-group">
 									<?php
 									if (isset($_GET['msg'])) {
@@ -140,42 +140,71 @@ if (basename(__DIR__) != 'admin') {
 												<textarea rows="5" cols="5" id="details" class="form-control" placeholder="Default textarea" name="details" required><?php echo $banner['details'] ?></textarea>
 											</div>
 										</div>
-
-										<div class="form-group">
+										
+										<!-- <div class="form-group">
 											<label class="control-label col-lg-2" for="image">Image</label>
 											<div class="col-lg-10">
 												<input type="file" id="image" class="form-control" name="image">
 											</div>
+										</div> -->
+
+						                        <div class="form-group">
+							                      <label class="col-lg-2 control-label text-semibold" for="image">Image</label>
+							                      <div class="col-lg-10">
+								                    <input type="file" name="image" id="image" class="file-input-extensions">
+								                    <span class="help-block">Allow extensions: <code>jpg</code>, <code>png</code> and <code>jpeg</code> and Allow Size: <code>640 * 426</code> Only</span>
+							                      </div>
+
+										<!-- Image Uploade Start-->
+										<div class="form-group">
+										<label class="col-lg-3 control-label text-semibold" for="">Image</label>
+										<div class="col-lg-6">
+										<div class="file-preview">
+											<div class="close fileinput-remove text-right">×</div>
+											<div class="file-preview-thumbnails">
+												<div class="file-preview-frame" id="preview-1656423988463-0">
+													<img src="<?php echo '../uploads/bannerImage/'.$banner['image'] ?>" class="file-preview-image" title="" alt="" style="width:auto;height:160px;">
+												</div>
+											</div>
+											<div class="clearfix"></div>
+											<div class="file-preview-status text-center text-success"></div>
+											<div class="kv-fileinput-error file-error-message" style="display: none;"></div>
 										</div>
+										</div>
+						                        </div>
+										<!-- Image Uploade End-->
 
-									<?php } ?>
+						                        </div>
+						                        <!-- Image Uploade End-->
 
-								</fieldset>
-								<div class="text-right">
-									<button type="submit" name="updateBanner" class="btn btn-primary">Submit <i class="icon-arrow-right14 position-right"></i></button>
-									<a href="bannerList.php" class="btn btn-default">Go to Banner <i class=" icon-arrow-left13 position-left"> </i></a>
-								</div>
+					<?php } ?>
 
-							</form>
-
-						</div>
-						<!-- /basic examples -->
+					</fieldset>
+					<div class="text-right mb-10 mr-10">
+						<button type="submit" name="updateBanner" class="btn btn-primary">Submit <i class="icon-arrow-right14 position-right"></i></button>
+						<a href="bannerList.php" class="btn btn-default">Go to Banner <i class=" icon-arrow-left13 position-left"> </i></a>
 					</div>
 
+					</form>
 
+					</div>
+					<!-- /basic examples -->
 				</div>
-				<!-- /basic datatable -->
-				<!-- Footer -->
-				<div class="footer text-muted">
-					&copy; 2022. <a href="#">Developer Shakil</a> by <a href="#" target="_blank">MD Shakil Sikder</a>
-				</div>
-				<!-- /footer -->
+
 
 			</div>
-			<!-- /content area -->
+			<!-- /basic datatable -->
+			<!-- Footer -->
+			<div class="footer text-muted">
+				&copy; 2022. <a href="#">Developer Shakil</a> by <a href="#" target="_blank">MD Shakil Sikder</a>
+			</div>
+			<!-- /footer -->
 
 		</div>
-		<!-- /main content -->
+		<!-- /content area -->
+
+	</div>
+	<!-- /main content -->
 
 	</div>
 	<!-- /page content -->

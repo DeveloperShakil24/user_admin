@@ -127,14 +127,23 @@ if (basename(__DIR__) != 'admin') {
 											<textarea rows="5" cols="5" id="services_detals" class="form-control" placeholder="Default textarea" name="icon_name"></textarea>
 										</div>
 									</div>
-
+									<div class="form-group">
+										<label class="control-label col-lg-2" for="services_status">Services Status</label>
+										<div class="col-lg-10">
+											<select name="services_status" class="form-control" id="services_status">
+												<option value="">Select Services</option>
+												<option value="1">Services Status Left</option>
+												<option value="2">Services Status Right</option>
+											</select>
+										</div>
+									</div>
 								</fieldset>
 								<div class="text-right">
 									<button type="submit" name="saveServices" class="btn btn-primary">Submit <i class="icon-arrow-right14 position-right"></i></button>
 									<a href="servicesList.php" class="btn btn-default">Go to Services <i class=" icon-arrow-left13 position-left"> </i></a>
 								</div>
 							</form>
-							
+
 						</div>
 						<!-- /basic examples -->
 					</div>

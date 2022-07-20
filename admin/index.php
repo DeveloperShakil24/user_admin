@@ -2,21 +2,30 @@
 <html lang="en">
 <html lang="en">
 
-	<?php 
-		// die($_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
-		if (basename(__DIR__) != 'admin') {
-			$baseUrl = '../';
-			$isInternal = true;
-		} else {
-			$baseUrl = '';
-			$isInternal = false;
-		}
-		include "includes/head.php";
-	?>
+<?php
+// die($_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI']);
+if (basename(__DIR__) != 'admin') {
+	$baseUrl = '../';
+	$isInternal = true;
+} else {
+	$baseUrl = '';
+	$isInternal = false;
+}
+include "includes/head.php";
+?>
 
-	<!-- head -->
-	<?php //include "includes/head.php";?>
-	<!-- /head -->
+<!-- head -->
+<?php
+if (!empty($_SESSION['suessMsg'])) {
+	echo "<small>{$_SESSION['suessMsg']}</small>";
+	unset($_SESSION['suessMsg']);
+}
+// $_SESSION['userName'] = 'Md Shakil';
+// echo '<pre>';
+// echo $_SESSION['userName'];
+// echo '</pre>';
+?>
+<!-- /head -->
 
 <body>
 
@@ -60,7 +69,8 @@
 					<!-- /user menu -->
 
 					<!-- Main navigation -->
-					<?php $page = 'index'; include "includes/navigation.php"; ?>
+					<?php $page = 'index';
+					include "includes/navigation.php"; ?>
 					<!-- /main navigation -->
 
 				</div>
@@ -76,7 +86,6 @@
 						<div class="page-title">
 							<h4><i class="icon-arrow-left52 position-left"></i> <span class="text-semibold">Home</span> - Dashboard</h4>
 						</div>
-
 						<div class="heading-elements">
 							<div class="heading-btn-group">
 								<a href="#" class="btn btn-link btn-float has-text"><i class="icon-bars-alt text-primary"></i><span>Statistics</span></a>
@@ -1754,8 +1763,8 @@
 					<!-- /dashboard content -->
 
 					<!-- Core JS files -->
-					<?php include "includes/script.php";?>
-					<!-- /Core JS files -->					
+					<?php include "includes/script.php"; ?>
+					<!-- /Core JS files -->
 
 					<!-- Footer -->
 					<div class="footer text-muted">
@@ -1778,3 +1787,4 @@
 </body>
 
 </html>
+

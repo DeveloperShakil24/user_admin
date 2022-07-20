@@ -11,7 +11,21 @@ if (basename(__DIR__) != 'admin') {
 	$isInternal = false;
 }
 ?>
+<?php
+// echo '<pre>';
+// echo $_SESSION['userName'];
+// echo '</pre>';
 
+/**
+ * 1. Session Assine / Declear
+ * 2. Sesssion start
+ * 3. Session Call
+ * 4. Session Destroy
+ * 5. Redirect To Login Page
+ * 6. authenticate page Redirect
+ */
+
+?>
 <!-- head -->
 <?php include "../includes/head.php"; ?>
 <!-- /head -->
@@ -58,7 +72,8 @@ if (basename(__DIR__) != 'admin') {
 					<!-- /user menu -->
 
 					<!-- Main navigation -->
-					<?php $page = 'banner'; include "../includes/navigation.php"; ?>
+					<?php $page = 'banner';
+					include "../includes/navigation.php"; ?>
 					<!-- /main navigation -->
 
 				</div>
@@ -112,12 +127,12 @@ if (basename(__DIR__) != 'admin') {
 							<table class="table datatable-basic table-bordered table-hover">
 								<thead>
 									<tr>
-										<th width = "5%">SL</th>
-										<th width = "20%">Title</th>
-										<th width = "20%">Sub Title</th>
-										<th width = "30%">Details</th>
-										<th width = "15%">Image</th>
-										<th width = "10%" class="text-center">Actions</th>
+										<th width="5%">SL</th>
+										<th width="20%">Title</th>
+										<th width="20%">Sub Title</th>
+										<th width="30%">Details</th>
+										<th width="15%">Image</th>
+										<th width="10%" class="text-center">Actions</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -136,8 +151,8 @@ if (basename(__DIR__) != 'admin') {
 											<td><?php echo $banner['sub_title']; ?></td>
 											<td><?php echo $banner['details']; ?></td>
 											<td>
-                                                                   <img class="img-responsive" width="80" height="80" src="<?php echo '../uploads/bannerImage/'.$banner['image']; ?>" alt="">
-										      </td>
+												<img class="img-responsive" width="80" height="80" src="<?php echo '../uploads/bannerImage/' . $banner['image']; ?>" alt="">
+											</td>
 											<td class="text-center">
 												<a href="bannerUpdate.php?banner_id=<?php echo $banner['id']; ?>" class=""><i class=" icon-pencil7"></i></a>
 												<a href="bannerDelete.php?banner_id=<?php echo $banner['id']; ?>" class=""><i class=" icon-trash-alt"></i></a>

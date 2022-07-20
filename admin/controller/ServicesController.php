@@ -9,8 +9,9 @@ if (isset($_POST["saveServices"])) {
     $service_name    = $_POST['service_name'];
     $services_detals = $_POST['services_detals'];
     $icon_name       = $_POST['icon_name'];
+    $services_status = $_POST['services_status'];
 
-    if (empty($service_name) || empty($services_detals) || empty($icon_name)) {
+    if (empty($service_name) || empty($services_detals) || empty($icon_name) || empty($services_status)) {
         $masssage = "All Field are Requried";
     } else {
         $insertQry = "INSERT INTO services (service_name, services_detals, icon_name) VALUES ('{$service_name}', '{$services_detals}', '{$icon_name}')";

@@ -32,7 +32,6 @@ if (basename(__DIR__) != 'admin') {
 			<!-- Main sidebar -->
 			<div class="sidebar sidebar-main">
 				<div class="sidebar-content">
-
 					<!-- User menu -->
 					<div class="sidebar-user">
 						<div class="category-content">
@@ -44,7 +43,6 @@ if (basename(__DIR__) != 'admin') {
 										<i class="icon-pin text-size-small"></i> &nbsp;Santa Ana, CA
 									</div>
 								</div>
-
 								<div class="media-right media-middle">
 									<ul class="icons-list">
 										<li>
@@ -58,7 +56,8 @@ if (basename(__DIR__) != 'admin') {
 					<!-- /user menu -->
 
 					<!-- Main navigation -->
-					<?php $page='ourProject'; include "../includes/navigation.php"; ?>
+					<?php $page = 'ourProject';
+					include "../includes/navigation.php"; ?>
 					<!-- /main navigation -->
 
 				</div>
@@ -130,7 +129,6 @@ if (basename(__DIR__) != 'admin') {
 									if (!empty($projetcList)) {
 
 										foreach ($projetcList as $key => $projetc) {
-
 									?>
 											<tr>
 												<td><?php echo ++$key; ?></td>
